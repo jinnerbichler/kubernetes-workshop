@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: configmaps-secrets-02
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: configmaps-secrets-02
+  template:
+    metadata:
+      labels:
+        app: configmaps-secrets-02
+    spec:
+      containers:
+        - name: configmaps-secrets-02
+          image: paulbouwer/hello-kubernetes:1.8
+          ports:
+            - containerPort: 8080
+          env:
+            # define the environment variable from the key name in the ConfigMap.
+            - name: MESSAGE
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-02
+                  key: CONFIGMAP_MESSAGE
+#                secretKeyRef:
+#                  name: secret-02
+#                  key: SECRET_MESSAGE

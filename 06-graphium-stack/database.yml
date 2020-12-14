@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: graphium-database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: graphium-database
+  template:
+    metadata:
+      labels:
+        app: graphium-database
+    spec:
+      volumes:
+        - name: graphium-database
+          persistentVolumeClaim:
+            claimName: graphium-database
+        - name: graphium-init
+          configMap:
+            name: graphium-init
+      containers:
+        - name: graphium-database
+          image: mdillon/postgis:11
+          ports:
+            - containerPort: 5432
+          env:
+            - name: "POSTGRES_USER"
+              value: "graphium"
+            - name: "POSTGRES_PASSWORD"
+              value: "graphium"
+            - name: "POSTGRES_DB"
+              value: "graphium"
+          volumeMounts:
+            - mountPath: "/var/lib/postgresql/data"
+              name: graphium-database
+            - mountPath: "/docker-entrypoint-initdb.d/"
+              name: graphium-init
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: graphium-database
+spec:
+  type: ClusterIP
+  ports:
+    - port: 5432
+      targetPort: 5432
+  selector:
+    app: graphium-database
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: graphium-database
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi

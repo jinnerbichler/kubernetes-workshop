@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sidecar-05
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sidecar-05
+  template:
+    metadata:
+      labels:
+        app: sidecar-05
+    spec:
+      containers:
+        - name: sidecar-05-backend
+          image: paulbouwer/hello-kubernetes:1.8
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MESSAGE
+              value: Hello Sidecar!
+        # https://github.com/xsc/nginx-sidecar-basic-auth
+        - name: sidecar-05-proxy
+          image: xscys/nginx-sidecar-basic-auth:latest
+          ports:
+            - containerPort: 8087
+              protocol: TCP
+          env:
+            - name: FORWARD_PORT
+              value: "8080"
+            - name: PORT
+              value: "80"
+            - name: BASIC_AUTH_USERNAME
+              value: admin
+            - name: BASIC_AUTH_PASSWORD
+              value: password
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: sidecar-05
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: sidecar-05
