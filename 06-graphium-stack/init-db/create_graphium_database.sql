@@ -308,7 +308,6 @@ ALTER TABLE graphs.waysegments
   DROP COLUMN geometry_900913;
 ALTER TABLE graphs.waysegments
   ADD COLUMN length real;
--- TODO: migrate data, set length to st_length
 
 UPDATE graphs.waysegments set length = ST_length(geometry,true);
 

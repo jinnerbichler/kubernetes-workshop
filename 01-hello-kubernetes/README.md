@@ -4,6 +4,12 @@
 kubectl apply -f deployment.yml --record
 ```
 
+**Show logs of deployment**:
+
+```shell
+kubectl logs --tail=-1 --follow -l app=hello-kubernetes-01
+```
+
 **Show deployment history**:
 
 ```shell
@@ -56,6 +62,12 @@ kubectl describe services hello-kubernetes-00
 kubectl get services
 ```
 
+**Open NodePort of service in Browser**:
+
+```shell
+minikube service hello-kubernetes-01
+```
+
 **Display current cluster configuration of client**:
 
 ```shell
@@ -67,7 +79,3 @@ kubectl config view
 ```shell
 kubectl api-resources
 ```
-
-TODO: Minikube commands for accessing nodeport
-TODO: Command for accessing logs
-TODO: explain internal DNS based on name of Service

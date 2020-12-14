@@ -4,6 +4,12 @@
 kubectl apply -f configmap.yml -f service.yml -f secret.yml -f deployment.yml
 ```
 
+**Access NodePort of Service**:
+
+```shell
+minikube service configmaps-secrets-02
+```
+
 **Show details of ConfigMap**:
 
 ```shell
@@ -22,7 +28,9 @@ kubectl describe configmap configmap-02
 kubectl rollout restart deployment configmaps-secrets-02
 ```
 
-TODO: Minikube commands for accessing nodeport
+```shell
+minikube service graph-viewer
+```
 
 ### Notes:
 
