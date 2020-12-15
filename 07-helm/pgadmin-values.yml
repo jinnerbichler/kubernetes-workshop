@@ -1,0 +1,17 @@
+service:
+  type: NodePort
+env:
+  email: test@email.at
+  password: password
+serverDefinitions:
+  enabled: true
+  servers: |-
+    "1": {
+      "Name": "k8s workshop",
+      "Group": "Servers",
+      "Port": 5432,
+      "Username": "postgres",
+      "Host": "database-07-postgresql",
+      "SSLMode": "prefer",
+      "MaintenanceDB": "postgres"
+    }

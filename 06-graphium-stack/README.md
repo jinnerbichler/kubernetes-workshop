@@ -38,7 +38,7 @@ kubectl apply -f graphium.yml
 kubectl logs --tail=-1 --follow -l app=graphium-backend
 ```
 
-**Open status page in Browser**:
+**Open status page in browser**:
 
 ```shell
 open $(minikube service --url graphium-backend)/graphium/api/status
@@ -60,7 +60,7 @@ kubectl create secret docker-registry regcred --docker-server=<your-registry-ser
 kubectl apply -f frontend.yml
 ````
 
-**Open frontend in Browser**:
+**Open frontend in browser**:
 
 ```shell
 open $(minikube service --url graph-viewer)

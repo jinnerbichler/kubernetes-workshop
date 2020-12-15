@@ -62,7 +62,7 @@ kubectl describe services hello-kubernetes-00
 kubectl get services
 ```
 
-**Open NodePort of service in Browser**:
+**Open NodePort of service in browser**:
 
 ```shell
 minikube service hello-kubernetes-01

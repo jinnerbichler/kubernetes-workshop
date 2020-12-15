@@ -1,0 +1,6 @@
+persistence:
+  enabled: no
+
+postgresqlUsername: postgres
+postgresqlPassword: postgres
+postgresqlDatabase: postgres
