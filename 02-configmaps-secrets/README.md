@@ -29,7 +29,7 @@ kubectl rollout restart deployment configmaps-secrets-02
 ```
 
 ```shell
-minikube service graph-viewer
+minikube service configmaps-secrets-02
 ```
 
 ### Notes:

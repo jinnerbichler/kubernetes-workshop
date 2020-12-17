@@ -1,8 +1,10 @@
 service:
-  type: NodePort
+  type: NodePort  # accessible from outside cluster
+
 env:
   email: test@email.at
   password: password
+
 serverDefinitions:
   enabled: true
   servers: |-

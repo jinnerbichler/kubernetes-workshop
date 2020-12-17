@@ -2,16 +2,16 @@
 
 A list of available packages can be found here [https://artifacthub.io/](https://artifacthub.io/).
 
-**Add the proper repository**:
-
-```shell
-helm repo add bitnami https://charts.bitnami.com/bitnami
-```
-
 **Create a dedicated namespace**:
 
 ```shell
 kubectl apply -f namespace.yml
+```
+
+**Add the proper repository**:
+
+```shell
+helm repo add bitnami https://charts.bitnami.com/bitnami
 ```
 
 **Configure and install database**:
@@ -22,7 +22,15 @@ Configurable values can be found here: [https://artifacthub.io/packages/helm/bit
 helm install -f postgres-values.yml -n helm database-07 bitnami/postgresql
 ```
 
+**Update Helm package**:
+
+```shell
+helm upgrade -f postgres-values.yml -n helm database-07 bitnami/postgresql
+```
+
 ## Deploy PGAdmin
+
+Configurable values can be found here: [https://artifacthub.io/packages/helm/runix/pgadmin4](https://artifacthub.io/packages/helm/runix/pgadmin4).
 
 **Add the proper repository**:
 

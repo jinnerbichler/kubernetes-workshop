@@ -24,6 +24,12 @@ kubectl apply -f database.yml
 kubectl exec -it <POD_IDENTIFIER> -- /bin/bash -c 'ls -la /docker-entrypoint-initdb.d'
 ```
 
+**Get logs of Postgis database**:
+
+```shell
+kubectl logs --tail=-1 --follow -l app=graphium-database
+```
+
 ## Deploy Graphium server 
 
 **Create Graphium deployment**:

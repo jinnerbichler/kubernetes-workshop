@@ -13,19 +13,19 @@ kubectl logs --tail=-1 --follow -l app=hello-kubernetes-01
 **Show deployment history**:
 
 ```shell
-kubectl rollout history deploy/hello-kubernetes
+kubectl rollout history deploy/hello-kubernetes-01
 ```
 
 **Details of deployment**:
 
 ```shell
-kubectl rollout history deploy/hello-kubernetes --revision=5
+kubectl rollout history deploy/hello-kubernetes-01 --revision=5
 ```
 
 **Undo deployment**:
 
 ```shell
-kubectl rollout undo deploy/hello-kubernetes --to-revision=5
+kubectl rollout undo deploy/hello-kubernetes-01 --to-revision=5
 ```
 
 ### Update strategies
@@ -47,13 +47,13 @@ kubectl get deployments
 **Show details of deployment**:
 
 ```shell
-kubectl describe deployments hello-kubernetes-00
+kubectl describe deployments hello-kubernetes-01
 ```
 
 **Show details of service**:
 
 ```shell
-kubectl describe services hello-kubernetes-00
+kubectl describe services hello-kubernetes-01
 ```
 
 **List services**:
@@ -78,4 +78,4 @@ kubectl config view
 
 ```shell
 kubectl api-resources
-```
+``` 

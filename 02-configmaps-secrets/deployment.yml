@@ -18,7 +18,7 @@ spec:
           ports:
             - containerPort: 8080
           env:
-            # define the environment variable from the key name in the ConfigMap.
+            # define the environment variable from the key name in the ConfigMap/Secret.
             - name: MESSAGE
               valueFrom:
                 configMapKeyRef:

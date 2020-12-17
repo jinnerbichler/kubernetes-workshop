@@ -3,14 +3,16 @@ kind: Deployment
 metadata:
   name: hello-kubernetes-01
 spec:
-  replicas: 3
+  replicas: 1
+  strategy:
+    type: RollingUpdate
   selector:
     matchLabels:
       app: hello-kubernetes-01
   template:
     metadata:
       labels:
-        app: hello-kubernetes-01
+          app: hello-kubernetes-01
     spec:
       containers:
         - name: hello-kubernetes-01

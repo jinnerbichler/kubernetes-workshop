@@ -21,20 +21,21 @@ spec:
             - name: MESSAGE
               value: Hello Sidecar!
         # https://github.com/xsc/nginx-sidecar-basic-auth
-        - name: sidecar-05-proxy
-          image: xscys/nginx-sidecar-basic-auth:latest
-          ports:
-            - containerPort: 8087
-              protocol: TCP
-          env:
-            - name: FORWARD_PORT
-              value: "8080"
-            - name: PORT
-              value: "80"
-            - name: BASIC_AUTH_USERNAME
-              value: admin
-            - name: BASIC_AUTH_PASSWORD
-              value: password
+#        - name: sidecar-05-proxy
+#          image: xscys/nginx-sidecar-basic-auth:latest
+#          ports:
+#            - containerPort: 8087
+#              protocol: TCP
+#          env:
+#            - name: FORWARD_PORT
+#              value: "8080"
+#            - name: PORT
+#              value: "80"
+#            - name: BASIC_AUTH_USERNAME
+#              value: admin
+#            - name: BASIC_AUTH_PASSWORD
+#              value: password
+
 ---
 
 apiVersion: v1
@@ -45,6 +46,7 @@ spec:
   type: NodePort
   ports:
     - port: 80
-      targetPort: 80
+      targetPort: 8080
+#      targetPort: 80
   selector:
     app: sidecar-05

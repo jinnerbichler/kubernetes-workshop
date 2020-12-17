@@ -1,6 +1,18 @@
+service:
+  type: ClusterIP  # not accessible from outside cluster
+
 persistence:
   enabled: no
 
 postgresqlUsername: postgres
 postgresqlPassword: postgres
 postgresqlDatabase: postgres
+
+#replication:
+#  enabled: true
+#  readReplicas: 1
+#  synchronousCommit: "on"
+#  numSynchronousReplicas: 1
+#
+#metrics:
+#  enabled: true
