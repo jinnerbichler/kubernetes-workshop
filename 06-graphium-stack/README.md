@@ -1,18 +1,18 @@
 ## Deploy database
 
-**Create ConfigMaps for initialisation scripts
+**Create ConfigMaps for initialisation scripts**:
 
 ```shell
 kubectl create configmap graphium-init --from-file=./init-db
 ```
 
-**Create Peristent Volume for database files
+**Create Peristent Volume for database files**:
 
 ```shell
 kubectl apply -f database-pv.yml
 ```
 
-**Create Deployment for database
+**Create Deployment for database**:
 
 ```shell
 kubectl apply -f database.yml
