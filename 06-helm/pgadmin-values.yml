@@ -13,7 +13,7 @@ serverDefinitions:
       "Group": "Servers",
       "Port": 5432,
       "Username": "postgres",
-      "Host": "database-07-postgresql",
+      "Host": "database-06-postgresql",
       "SSLMode": "prefer",
       "MaintenanceDB": "postgres"
     }

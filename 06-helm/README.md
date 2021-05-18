@@ -19,13 +19,13 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 Configurable values can be found here: [https://artifacthub.io/packages/helm/bitnami/postgresql](https://artifacthub.io/packages/helm/bitnami/postgresql).
 
 ```shell
-helm install -f postgres-values.yml -n helm database-07 bitnami/postgresql
+helm install -f postgres-values.yml -n helm database-06 bitnami/postgresql
 ```
 
 **Update Helm package**:
 
 ```shell
-helm upgrade -f postgres-values.yml -n helm database-07 bitnami/postgresql
+helm upgrade -f postgres-values.yml -n helm database-06 bitnami/postgresql
 ```
 
 ## Deploy PGAdmin
@@ -41,11 +41,11 @@ helm repo add runix https://helm.runix.net/
 **Configure and install pgadmin**:
 
 ```shell
-helm install -f pgadmin-values.yml -n helm pgadmin-07 runix/pgadmin4
+helm install -f pgadmin-values.yml -n helm pgadmin-06 runix/pgadmin4
 ```
 
 **Open PGAdmin in the browser**:
 
 ```shell
-minikube service pgadmin-07-pgadmin4 -n helm
+minikube service pgadmin-06-pgadmin4 -n helm
 ```
