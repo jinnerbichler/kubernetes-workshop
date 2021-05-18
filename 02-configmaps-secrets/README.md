@@ -19,7 +19,7 @@ kubectl describe configmap configmap-02
 **Show details of Secret**:
 
 ```shell
-kubectl describe configmap configmap-02
+kubectl describe secret secret-02
 ```
 
 **Restart deployment manually**:
