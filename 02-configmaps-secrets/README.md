@@ -28,10 +28,6 @@ kubectl describe secret secret-02
 kubectl rollout restart deployment configmaps-secrets-02
 ```
 
-```shell
-minikube service configmaps-secrets-02
-```
-
 ### Notes:
 
 - Changes in ConfigMaps / Secrets are not directly effecting deployments...deployments must be restarted.
