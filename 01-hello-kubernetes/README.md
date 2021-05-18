@@ -4,6 +4,12 @@
 kubectl apply -f deployment.yml --record
 ```
 
+**Create service**:
+
+```shell
+kubectl apply -f service.yml
+```
+
 **Show logs of deployment**:
 
 ```shell
